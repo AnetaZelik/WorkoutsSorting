@@ -1,4 +1,5 @@
 import java.time.Duration;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -12,27 +13,10 @@ public class Main {
                 new Workout("Yoga", Duration.ofMinutes(45),
                         new Trainer("Mariah", 25, new Trainee("Pablo", 65))));
 
-        System.out.println("All available workouts sorted by name in an ascending way:");
-        workouts.stream()
-                .sorted(Workout.sortByWorkoutsName)
-                .forEach(System.out::println);
-        System.out.println();
+        Workout.showAllWorkouts(workouts);
+        Workout.showWorkoutsByNames(workouts);
+        Workout.showWorkoutsByDurationDesc(workouts);
 
-        System.out.println("All available workouts sorted by workout;s name, trainer's name and trainee's name:");
-        workouts.stream()
-                .sorted(Workout.sortByWorkoutsName
-                        .thenComparing(Trainer
-                                .sortByTrainersName)
-                        .thenComparing(Trainee
-                                .sortByTraineesName))
-                .forEach(System.out::println);
-        System.out.println();
-
-        System.out.println("All available workouts sorted by duration in a descending way:");
-        workouts.stream()
-                .sorted(Workout.sortByDuration
-                        .thenComparing(Workout
-                                .sortByDuration.reversed()))
-                .forEach(System.out::println);
     }
 }
+

@@ -1,5 +1,6 @@
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
 import java.util.Comparator;
 
 @Data
@@ -9,6 +10,6 @@ public class Trainer {
     private int age;
     private Trainee trainee;
 
-    static Comparator<Workout> sortByTrainersName= Comparator.comparing(w -> w.getTrainer().getName());
+    static Comparator<Workout> sortByTrainersName = Comparator.comparing(w -> w.getTrainer().getName());
 
 }
